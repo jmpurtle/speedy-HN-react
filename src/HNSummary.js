@@ -39,12 +39,12 @@ class HNSummary extends Component {
     render() {
         return (
             <li>
-            	<a href="{this.state.url}" target="_blank">
+            	<a class="hnThread" href={'https://news.ycombinator.com/item?id=' + this.state.id} target="blank">
+            		{this.state.kids} comments
+            	</a>
+            	<a class="hnArticle" href={this.state.url} target="_blank">
             		{this.state.title}
             	</a>
-            	<span>
-					{this.state.score} points by {this.state.by} | {this.state.kids} comments
-            	</span>
             </li>
         );
     }

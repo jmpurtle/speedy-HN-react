@@ -18,8 +18,7 @@ class HNSummary extends Component {
 		}
 	}
 
-	componentDidMount() {
-		
+	retrieveSummary() {
 		fetch("/api/" + this.props.item).then(function(response) {
 			return response.json();
 		}).then((respJson) => {
@@ -33,16 +32,25 @@ class HNSummary extends Component {
 			this.setState({type: respJson['type']});
 			this.setState({url: respJson['url']});
 		});
+	}
 
+	componentDidMount() {
+		this.retrieveSummary();
+	}
+
+	componentDidUpdate(prevProps) {
+		if (this.props.item !== prevProps.item) {
+			this.retrieveSummary();
+		}
 	}
 
     render() {
         return (
             <li>
-            	<a class="hnThread" href={'https://news.ycombinator.com/item?id=' + this.state.id} target="blank">
+            	<a rel="noopener noreferrer" className="hnThread" href={'https://news.ycombinator.com/item?id=' + this.state.id} target="blank">
             		{this.state.kids} comments
             	</a>
-            	<a class="hnArticle" href={this.state.url} target="_blank">
+            	<a rel="noopener noreferrer" className="hnArticle" href={this.state.url} target="_blank">
             		{this.state.title}
             	</a>
             </li>

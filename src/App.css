@@ -64,6 +64,8 @@ html, body, #root {
   background-color: #f5f5f5;
   color: #2f2e2e;
   padding: 1em 0;
+  position: relative;
+  padding-bottom: 90px;
 }
 li {
   padding-bottom: 1em;
@@ -75,6 +77,41 @@ li a {
   color: #2f2e2e;
   font-size: 1.3em;
 }
+
+/* Global Controls Styles */
+a.btn {
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+  height: auto;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 11px 20px 9px 20px;
+  min-width: 150px;
+  background-color: #ff6600;
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+a.btn:hover {
+  background-color: #ffffff;
+  color: #ff6600;
+  border: 1px solid #ff6600;
+}
+
+/* Header */
+.siteHeader {
+  padding: 30px 20px 15px 20px;
+}
+.siteHeader h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+
+/* HN summaries */
 .hnThread {
   width: 100%;
   flex-basis: 100%;
@@ -88,13 +125,31 @@ li a {
 .hnArticle {
   width: 100%;
   flex-basis: 100%;
-  padding: 10px;
+  padding: 10px 20px;
+}
+.hnArticle:hover {
+  color: #6b6969;
+}
+
+/* Controls */
+.viewLimits {
+  padding: 15px 20px 30px 20px;
+}
+.viewLimits, .pagination {
+  display: flex;
+  justify-content: space-between;
+}
+.pagination {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 10px 20px;
 }
 
 /* Responsive */
 @media only screen and (min-width: 768px) {
   .hnThread, .hnArticle {
-    padding: 0 10px;
+    padding: 0 20px;
   }
   .hnThread {
     width: 20%;
